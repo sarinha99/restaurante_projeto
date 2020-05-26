@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      > 
+<h:head>
+
+</h:head> 
+<body> 
+<h2>Lista de Produtos</h2>
+<p:dataTable var="produto" value="#{ProdutoBean.listarProdutos()}">
+    <p:column headerText="Id">
+        <h:outputText value="#{produto.id}" />
+    </p:column>
+ 
+    <p:column headerText="Descricao">
+        <h:outputText value="#{produto.descricao}" />
+    </p:column>
+ 
+    <p:column headerText="Estoque">
+     <h:outputText value="#{produto.estoque}" />
+    </p:column>
+ 
+    <p:column headerText="Estoque Maximo">
+        <h:outputText value="#{produto.estoqueMin}" />
+    </p:column>
+     <p:column headerText="Valor">
+        <h:outputText value="#{produto.valor}" />
+    </p:column>
+     <p:column headerText="excluir">
+     	<p:commandLink action="#{ProdutoBean.delProduto(produto)}">
+     		<h:outputText value="Excluir" />
+     	</p:commandLink>
+    </p:column>
+</p:dataTable>
+
+</body> 
+</html>
+
+
